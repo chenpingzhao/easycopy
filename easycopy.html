@@ -8,7 +8,7 @@
 <body>
 <div style="margin:120px auto;width:300px;">
     <textarea id="share_text" class="share-text"></textarea>
-    <input class="btn" id="lipboard_data" type="button" value="复制">
+    <input class="btn" id="clipboard_data" type="button" value="复制">
 </div>
 <script src="./zeroclipboard.js"></script>
 <script src="./jquery-1.8.1.min.js"></script>
@@ -17,7 +17,7 @@
     $(function() {
         var clip = new ZeroClipboard.Client();
         clip.setHandCursor(true);
-        clip.glue('lipboard_data');
+        clip.glue('clipboard_data');
         clip.addEventListener('mouseDown',function() {
             clip.setText($('#share_text').val());
         });
