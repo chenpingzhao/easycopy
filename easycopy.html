@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>ZeroClipboard demo</title>
+<link href="./bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<div style="margin:120px auto;width:300px;">
+    <textarea id="share_text" class="share-text"></textarea>
+    <input class="btn" id="lipboard_data" type="button" value="复制">
+</div>
+<script src="./zeroclipboard.js"></script>
+<script src="./jquery-1.8.1.min.js"></script>
+<script>
+(function() {
+    $(function() {
+        var clip = new ZeroClipboard.Client();
+        clip.setHandCursor(true);
+        clip.glue('lipboard_data');
+        clip.addEventListener('mouseDown',function() {
+            clip.setText($('#share_text').val());
+        });
+         clip.addEventListener('complete',function() {
+            console.log("copy success");
+            //clip.destroy();
+        });
+    });  
+})()
+</script>
+</body>
+</html>
